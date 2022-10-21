@@ -30,6 +30,7 @@ const sauceRoutes = require('./routes/sauce');
 
 // DATABASE CONNECTION
 const serverUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PWD}@cluster0.nuxqm.mongodb.net/?retryWrites=true&w=majority`;
+console.log(serverUrl);
 mongoose.connect(serverUrl,
     {
         useNewUrlParser: true,
