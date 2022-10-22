@@ -26,9 +26,10 @@ exports.signup = (req, res, next) => {
         });
     } else {
         let passValidate = schema.validate(req.body.password, { details: true });
+        let passValidateMsg = passValidate.map(x => x.message);
         if (passValidate.length > 0) {
             res.status(400).json({
-                error: passValidate
+                message: passValidateMsg
             });
         } else {
             bcrypt.hash(req.body.password, 10)
